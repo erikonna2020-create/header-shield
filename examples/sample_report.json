@@ -1,0 +1,79 @@
+{
+  "timestamp_utc": "2026-11-23T14:00:00+00:00",
+  "initial_url": "https://example.com",
+  "final_url": "https://example.com",
+  "status_code": 200,
+  "redirects": [],
+  "headers": {
+    "Content-Type": "text/html; charset=UTF-8",
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "DENY",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "Server": "example-edge"
+  },
+  "audit": {
+    "score": 65,
+    "max_score": 100,
+    "grade": "C",
+    "findings": [
+      {
+        "header": "Strict-Transport-Security",
+        "present": true,
+        "value": "max-age=31536000; includeSubDomains",
+        "score": 25,
+        "max_score": 25,
+        "recommended": "max-age=31536000; includeSubDomains",
+        "reason": "Enforces HTTPS and protects against protocol downgrade attacks."
+      },
+      {
+        "header": "Content-Security-Policy",
+        "present": false,
+        "value": null,
+        "score": 0,
+        "max_score": 25,
+        "recommended": "default-src 'self'",
+        "reason": "Mitigates XSS and data injection risks by restricting resource origins."
+      },
+      {
+        "header": "X-Content-Type-Options",
+        "present": true,
+        "value": "nosniff",
+        "score": 15,
+        "max_score": 15,
+        "recommended": "nosniff",
+        "reason": "Prevents browsers from MIME-sniffing responses away from declared types."
+      },
+      {
+        "header": "X-Frame-Options",
+        "present": true,
+        "value": "DENY",
+        "score": 15,
+        "max_score": 15,
+        "recommended": "DENY or SAMEORIGIN",
+        "reason": "Helps protect against clickjacking attacks."
+      },
+      {
+        "header": "Referrer-Policy",
+        "present": true,
+        "value": "strict-origin-when-cross-origin",
+        "score": 10,
+        "max_score": 10,
+        "recommended": "strict-origin-when-cross-origin",
+        "reason": "Controls how much referrer information is sent with requests."
+      },
+      {
+        "header": "Permissions-Policy",
+        "present": false,
+        "value": null,
+        "score": 0,
+        "max_score": 10,
+        "recommended": "geolocation=(), microphone=(), camera=()",
+        "reason": "Restricts access to sensitive browser features and APIs."
+      }
+    ],
+    "information_disclosure": {
+      "Server": "example-edge"
+    }
+  }
+}
